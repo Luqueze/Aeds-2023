@@ -10,7 +10,7 @@
         printf("insira o valor das vendas: \n");
         scanf("%f", &vendas);
 
-        comissao = vendas * 0.4;
+        comissao = vendas * 0.04;
         nsal = sal + comissao;
 
         printf("O valor da comissao e: R$%.2f\n", comissao);
