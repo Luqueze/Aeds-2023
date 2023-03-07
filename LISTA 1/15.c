@@ -22,9 +22,7 @@
         
         printf("O valor do salario e: R$%.2f", sal);
 
-       //teste change
-       //secondtest
-
+    
         
 
 
