@@ -1,3 +1,5 @@
+//algoritmo que calcule a soma e o produto de 3 números fornecidos pelo usuário.
+
 #include <stdio.h>
 
     int main() {

@@ -1,3 +1,13 @@
+ /* um algoritmo que leia as seguintes informações de um empregado: o número de horas trabalhadas, o valor 
+do salário mínimo e o número de horas extras trabalhadas. Calcule e mostre o salário que o empregado receberá 
+seguindo as seguintes regras: 
+• o valor pago por hora trabalhada é 1/8 do salário mínimo; 
+• o valor pago por hora extra vale 1/4 do salário mínimo; 
+• o salário bruto equivale ao número de horas trabalhadas vezes o valor pago por hora trabalhada; 
+• a quantia a receber por horas extras equivale  ao número de  horas extras realizadas multiplicado pelo valor 
+pago por hora extra; 
+• o salário a receber é a soma do salário bruto e da quantia a receber pelas horas extras */
+
 #include <stdio.h>
 
     int main(){

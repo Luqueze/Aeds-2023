@@ -1,3 +1,10 @@
+/* algoritmo que receba um número positivo, calcule e mostre: 
+• o número ao cubo; 
+• a raiz quadrada do número;  
+• a raiz cúbica do número; 
+• o seno do número; 
+• o cosseno do número. */
+
 #include <stdio.h>
 #include <math.h>
 

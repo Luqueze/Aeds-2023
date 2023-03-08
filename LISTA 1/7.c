@@ -1,3 +1,5 @@
+// algoritmo que lê os lados de um retângulo e calcula sua área e seu perímetro
+
 #include <stdio.h>
 
     int main(){

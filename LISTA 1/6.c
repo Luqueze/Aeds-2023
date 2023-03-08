@@ -1,3 +1,5 @@
+// algoritmo que recebe 2 números inteiros x e y e calcula o resto da divisão x / y
+
 #include <stdio.h>
 
     int main(){

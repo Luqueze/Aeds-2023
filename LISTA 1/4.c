@@ -1,3 +1,6 @@
+/* algoritmo que calcule a média ponderada de 4 números passados pelo usuário, sabendo-se que os pesos 
+são, respectivamente, 1, 2, 3 e 4 */
+
 #include<stdio.h>
 
     int main(){
