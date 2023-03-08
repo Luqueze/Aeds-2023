@@ -15,7 +15,7 @@
         scanf("%f %f", &x2, &y2);
 
         d = sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2));
-        //d = pow(pow(x2 - x1, 1/2.0) + pow(y2 - y1, 1/2.0), 1/2.0);
+        d = pow(pow(x2 - x1, 2) + pow(y2 - y1, 2), 1/2.0);
 
 
         printf("a distancia entre dois pontos e: %.2f", d);
