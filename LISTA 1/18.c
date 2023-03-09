@@ -1,4 +1,6 @@
-
+ /* Sejam P(x1,y1) e Q(x2,y2) dois pontos quaisquer no plano.  A distância entre os pontos é dada por 
+d=√(x2 −x1)2 +(y2 −y1)2. 
+Faça um algoritmo que leia as coordenadas dos dois pontos, determine e escreva a distância entre eles */
 
 #include<stdio.h>
 #include<math.h>
