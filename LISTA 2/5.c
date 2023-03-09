@@ -35,5 +35,7 @@
             puts("ERRO: a opção escolhida não existe");
         }
 
+        return 0;
+
 
     }

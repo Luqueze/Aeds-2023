@@ -16,4 +16,5 @@
         }else {
             puts("os numeros sao iguais");
         }
+        return 0;
     }

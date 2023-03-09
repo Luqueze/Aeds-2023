@@ -13,5 +13,5 @@
             puts("o numero e impar");
         }
 
-        
+        return 0; 
     }
