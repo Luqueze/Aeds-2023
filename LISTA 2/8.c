@@ -10,8 +10,10 @@ mostre a mensagem “Código inválido!”. */
 
         printf("Insira seu cargo\n 1.Escrituario\n 2.Secretario\n 3.Caixa\n");
         printf(" 4.gerente\n 5.Diretor\n:");
-        if(scanf("%d", &c) < 1 || c > 5){
+
+        if(scanf("%d", &c) < 1 || c < 1 || c > 5){
             puts("Codigo invalido.");
+            return 1;
         }else{
 
             puts("Qual seu salario atual?: ");
@@ -62,8 +64,8 @@ mostre a mensagem “Código inválido!”. */
 
                 printf("Voce recebeu um aumento de R$%.2f no seu cargo de diretor, seu salario atual e de R$%.2f", aumento, nsal);
 
-            /* }else{
-                puts("Codigo invalido. ");
-            } */
-        }  
+             }
+             return 0;  
+
+        }     
     }
