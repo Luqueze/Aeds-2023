@@ -65,6 +65,15 @@ mostre a mensagem “Código inválido!”. */
                 printf("Voce recebeu um aumento de R$%.2f no seu cargo de diretor, seu salario atual e de R$%.2f", aumento, nsal);
 
              }
+
+             else if(c == 5){
+                //valor total novo salario
+                nsal = sal;
+
+                //valor do aumento
+                aumento = 0; 
+
+                printf("Voce nao tem um aumento disponivel para seu cargo.");
              return 0;  
 
         }     
