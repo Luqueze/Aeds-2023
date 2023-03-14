@@ -1,3 +1,6 @@
+/* Faça  um  programa  que  receba  a  idade  do  nadador  e  mostre  sua  categoria  usando  as  regras  a  seguir.  Faça  os 
+testes  necessários  em  relação  à  idade  inválida,  considerando  que  estão  aptos  apenas  pessoas  com  5  ou  mais 
+anos */
 #include<stdio.h>
 
     int main(){

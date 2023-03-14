@@ -1,3 +1,5 @@
+ /* Uma escola de basquete distribui os jogadores em categorias conforme altura e idade. Existem quatro 
+categorias: infantil, júnior, profissional e sênior. Os seguintes critérios são utilizados para categorizar os atletas: */
 #include<stdio.h>
 
     int main(){

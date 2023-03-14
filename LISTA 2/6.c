@@ -1,3 +1,5 @@
+/* Faça  um  programa  que  receba  três  notas  de  0  a  10  de  um  aluno,  calcule  e  mostre  a  nota  final  do  aluno,  dada 
+pela média aritmética, e a situação do aluno conforme a tabela. */
 #include<stdio.h>
 
     int main(){

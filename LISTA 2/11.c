@@ -1,3 +1,5 @@
+/* Faça  um  programa  que,  dados  os  três  lados  x,  y  e  z  de  um  triângulo,  verifique  correspondem  aos  lados  de  um 
+triângulo válido. Caso o triângulo seja válido, imprima se o triângulo é equilátero, isósceles ou escaleno */
 #include <stdio.h>
 
     int main(){

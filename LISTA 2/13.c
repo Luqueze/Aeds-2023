@@ -1,3 +1,6 @@
+  /* Faça um algoritmo que encontre as raízes de uma equação do segundo grau 𝑎𝑥2 +𝑏𝑥+𝑐. O algoritmo deve ler 
+os  coeficientes  𝑎,  𝑏  e  𝑐  e  determinar  as  raízes  da  equação.  Caso  as  raízes  não  sejam  reais,  imprimir  uma 
+mensagem informando. */
 #include<stdio.h>
 #include<math.h>
 
