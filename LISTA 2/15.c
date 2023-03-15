@@ -25,6 +25,8 @@ PP = Peso do Planeta
 
         puts("Insira o codigo de seu planeta.\n 1.Mercurio \n 2.Venus\n 3.Marte ");
         printf(" 4.Jupiter\n 5.Saturno\n 6.Urano\n :");
+
+        //caso o usuario insira um nomero do tipo float ou fora do range esperado, o codigo acaba aqui
         if(scanf("%d", &c)< 1 || c <= 0 || c >= 6){
             printf("Codigo invalido.");
             return 1;

@@ -9,6 +9,7 @@ triângulo válido. Caso o triângulo seja válido, imprima se o triângulo é e
         printf("Insira o lado dos tres triangulos: ");
         scanf("%f %f %f", &a, &b, &c);
 
+        //nao é possivel haver um lado maior do que a soma dos outros dois em um triangulo
         if(a + b < c || a + c < b || c + b < a){
             printf("Triangulo invalido. ");
 

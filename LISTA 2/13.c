@@ -12,15 +12,18 @@ mensagem informando. */
         printf("Insira os valores de a,b,c: ");
         scanf("%d %d %d", &a, &b, &c);
         
-
+        //delta
         d = pow(b, 2) - 4 * a * c;
 
+
+        //delta = 0
         if(d == 0){
 
             x1 = -b / (2 * a);
             printf("A funcao possui uma raiz real que e igual a %f", x1);
         }
 
+        //dealta negativo
         else if(d < 0 ){
             printf("nao exite raiz real");
 
