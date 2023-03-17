@@ -35,6 +35,7 @@ PP = Peso do Planeta
         printf("Insira o peso do planeta: ");
         scanf("%f", &pt);
 
+        //avalia opção do usuario
         if(c == 1){
             pp = (pt / 10.0) * 0.37;
         }
