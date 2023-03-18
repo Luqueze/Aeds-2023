@@ -65,5 +65,5 @@ categorias: infantil, júnior, profissional e sênior. Os seguintes critérios s
         }
 
         return 0; 
-        //teste
-    } 
+        
+    }//end 
