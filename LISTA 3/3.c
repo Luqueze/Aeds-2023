@@ -1,10 +1,10 @@
 #include<stdio.h>
     int main(){
         
-        float menor = 999, maior = -999, a,b;
+        float menor = 999, maior = -999, a;
 
         for (float i = 0; i <= 10; i++){
-            printf("Insira 10 numeros reais: ");
+            printf("Insira o %.0f° numeros reais: ", i+1);
             scanf("%f", &a);
 
             if(a < menor){
@@ -12,7 +12,7 @@
             }
             
             else if(a > maior){
-                maior = b;
+                maior = a;
             }
             
             
