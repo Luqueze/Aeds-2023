@@ -20,6 +20,5 @@
 
         printf("O menor e %f maior e %f", menor, maior);
 
-        
-
+        return 0;
     }
