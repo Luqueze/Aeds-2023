@@ -5,8 +5,17 @@
         int a, soma = 0;
 
         for (int i = 1; i <= 20; i++){
-            printf("Insira 20 numeros inteiros: ");
+            printf("Insira o %i° numero inteiro: ", i);
+            scanf("%d", &a);
+
+            if(a % 5 == 0){
+
+                soma += a;
+            }
         }
+
+        printf("O valor da soma e %d ", soma);  
         
+        return 0;
         
     }
