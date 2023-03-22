@@ -5,8 +5,6 @@
         int contador5 = 0, contador = 0, i, a;
 
 
-        for ( i = 0; i < 999; i++){
-
             do{
 
                 printf("Insira os numeros desejados: ");
@@ -25,5 +23,5 @@
         printf("A quantidade de numeros inseridas foi %d e o 5 foi digitado %d vezes.", contador - 1, contador5);
 
         return 0;
-    }
+    
 }    
