@@ -9,8 +9,8 @@
             scanf("%d", &vetorOriginal[i]);
         }
 
-        for( j = 10, i = 0 ; j > 0 && i < 10; j--, i ++){
-            vetorInvertido[i] = vetorOriginal[j-1];
+        for( j = 9, i = 0 ; j > 0 && i < 10; j--, i ++){
+            vetorInvertido[i] = vetorOriginal[j];
 
         }
         
