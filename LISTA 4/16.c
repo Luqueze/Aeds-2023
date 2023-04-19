@@ -22,7 +22,7 @@ int main() {
     }
 
     printf("Maior elemento: %d\n", maior);
-    printf("Posicao no vetor: %d\n", posicao + 1); // Adiciona 1 à posição para exibir em formato humano
+    printf("Posicao no vetor: %d\n", posicao + 1); 
 
     return 0;
 }
