@@ -11,7 +11,7 @@
             }
         }
 
-        //for para somar as linhas
+        //loop para somar as linhas
         for(int i=0;i<3;i++){
             int soma=0;
             for(int j=0;j<4;j++){
