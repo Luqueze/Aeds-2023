@@ -2,7 +2,7 @@
 
     int main(){
 
-        int m[2][2], m2[2][2], soma = 0;
+        int m[2][2], m2[2][2], m3[2][2];
 
         for(int i = 0;i < 2; i++){
             for(int j = 0;j < 2; j++){
@@ -20,11 +20,16 @@
 
         for(int i = 0;i < 2; i++){
             for(int j = 0;j < 2; j++){
-                soma += (m[i][j] + m2[i][j]);
+                m3[i][j] = m[i][j] + m2[i][j];
             }
         }
 
-        printf("Soma: %d",soma);
+        for(int i = 0;i < 2; i++){
+            for(int j = 0;j < 2; j++){
+                printf("%d ",m3[i][j]);
+            }
+            printf("\n");
+        }
 
-        return 0;
+        
     }
