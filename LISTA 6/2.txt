@@ -1,0 +1,5 @@
+p++ ---> é avançado uma unidade no endereço apontado por p.
+(*p)++ ---> é somado uma unidade ao valor apontado por p.
+*(p++) ---> é avançado uma unidade no endereço apontado por p e o valor apontado é retornado.
+
+*(p+10) --->se refere ao valor apontado por p somado a 10 unidades.

@@ -1,0 +1,9 @@
+Se o endereço de uma variável valor foi atribuído a um ponteiro valorPtr, quais alternativas 
+são verdadeiras? Justifique sua resposta. 
+ 
+a) valor = = &valorPtr 
+b) valor = = *valorPtr 
+c) valorPtr = = &valor 
+d) valorPtr = = *valor
+
+*/ A unica alternativa certa é a letra C, pois para acessar o endereço de memoria, temos que usar o &.
