@@ -23,5 +23,6 @@ int main() {
 
     free(valores);
 
+    //teste
     return 0;
 }
