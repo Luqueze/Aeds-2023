@@ -8,7 +8,7 @@ void printArray(int n, int vetor[n]){
     printf("\n");
 }
 
-float mediaArray(int n, int vetor[]){
+float mediaArray(int n, int vetor[n]){
 
     int i;
     float soma = 0;
@@ -19,7 +19,7 @@ float mediaArray(int n, int vetor[]){
     
 }
 
-int maxArray(int n, int vetor[]){
+int maxArray(int n, int vetor[n]){
     int i;
     int maior = vetor[0];
     for(i = 0; i < n; i ++){
@@ -29,7 +29,7 @@ int maxArray(int n, int vetor[]){
     return maior;
 }
 
-int minArray(int n, int vetor[]){
+int minArray(int n, int vetor[n]){
     int i;
     int menor = vetor[0];
     for(i = 0; i < n; i++){
