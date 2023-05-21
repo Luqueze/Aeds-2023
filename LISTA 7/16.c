@@ -16,6 +16,8 @@
 
         printf("A soma dos elementos do array e: %.2f", soma(array, i));
 
+        return 0;
+
 
     }
 
