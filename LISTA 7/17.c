@@ -9,6 +9,8 @@
         scanf("%d", &n);
 
         printf("O numero %d repete %d vezes", n, repete(vetor, n, 10));
+
+        return 0;
     }
 
     int repete(int vetor[], int n, int i){
