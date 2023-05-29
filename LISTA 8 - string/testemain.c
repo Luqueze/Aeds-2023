@@ -1,12 +1,13 @@
 #include <stdio.h>
 
-int main(int argc, char *argv[]) {
-
-    int i = 0;
+int main(int j) {
+    printf("Valor de J = %d\n",j);
+    static int i = 0;
     if (i < 5) {
         printf("Recursao %d\n", i);
         i++;
-        main(argc, argv);
+        j++;
+        printf(" j=%d\n",main(j));
     }
-    return 0;
+    return j;
 }
