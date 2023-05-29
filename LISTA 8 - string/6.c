@@ -7,13 +7,13 @@
         char str2[50];
 
         printf("Insira uma string: ");
-        fgets(str, 50, stdin);
+        fgets(str, 50, stdin); //fgets adiciona '\n' no final da string
 
         str[strcspn(str, "\n")] = '\0';  // Remover a quebra de linha do final da string
 
         int a = strlen(str);
 
-        for(int i = 0, j = a-1; str[i] != '\0' && str[i] != '\n'; i++, j--){
+        for(int i = 0, j = a-1; i < a ; i++, j--){
             str2[j] = str[i];
         }
         

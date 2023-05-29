@@ -8,7 +8,7 @@
         printf("Insira uma string: ");
         fgets(str, 50, stdin);
 
-        for(int i = 0; i < 50; i++){
+        for(int i = 0; str[i] != '\0'; i++){
             if(str[i] == 'A')
                 count++;
         }
