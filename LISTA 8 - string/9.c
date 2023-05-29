@@ -4,6 +4,7 @@
 
         char str[51];
         char str2[4];
+        char *ret;
         
         printf("Digite uma string: ");
         fgets(str, 50, stdin);
@@ -12,7 +13,7 @@
         fgets(str, 4, stdin);
 
         
-
+        for(int i = )
         
 
 
