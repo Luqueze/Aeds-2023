@@ -5,7 +5,7 @@
         int fat;
 
         printf("Digite um numero: ");
-        scanf("%d", &fatorial);
+        scanf("%d", &fat);
 
         printf("O fatorial de %d e: ", fatorial(fat));
     }
