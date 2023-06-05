@@ -2,12 +2,18 @@
 
     int main(){
 
-        char str[50];
-        char str2[3];
+        char str[51];
+        char str2[4];
+        char *ret;
         
         printf("Digite uma string: ");
         fgets(str, 50, stdin);
 
+        printf("Digite outra string de 3 caractres: ");
+        fgets(str, 4, stdin);
+
+        
+        for(int i = )
         
 
 
