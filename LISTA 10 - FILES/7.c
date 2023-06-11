@@ -6,6 +6,11 @@
         float somatotal = 0;
 
         FILE *arq = fopen("resultados.txt", "w");
+
+        if(arq == NULL){
+            printf("Erro na abertura do arquivo");
+            return 0;
+        }
         
         printf("Insira quntos carros a locadora possui: ");
         scanf("%d", &n);
