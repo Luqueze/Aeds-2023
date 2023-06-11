@@ -8,6 +8,11 @@
 
         if(arq == NULL){
             printf("Erro na abertura do arquivo");
+            return 0;
+        }
+
+        if(arq == NULL){
+            printf("Erro na abertura do arquivo");
             return 1;
         }
 
