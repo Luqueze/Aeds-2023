@@ -4,6 +4,8 @@
 
         int n;
         float somatotal = 0;
+
+        FILE *arq = fopen("resultados.txt", "w");
         
         printf("Insira quntos carros a locadora possui: ");
         scanf("%d", &n);
@@ -17,6 +19,17 @@
 
         }
 
-        printf("O valor total arrecadado pela locadora foi de: %.2f\n", somatotal/3.0);
-        printf("O valor arrecadado por multas foi de: %.2f\n", (somatotal/10.0) * 0.2);
+        //impressao
+        printf("O valor total arrecadado pela locadora foi de: R$%.2f\n", (somatotal/3.0) * 12);
+        printf("O valor arrecadado por multas foi de: R$%.2f\n", (somatotal/10.0) * 0.2);
+        printf("o valor arrecadado por manutencao foi de: R$%.2f\n", (n * 0.02) * 600);
+
+        //arquivo
+        fprintf(arq, "O valor total arrecadado pela locadora foi de: R$%.2f\n", (somatotal/3.0) * 12);
+        fprintf(arq, "O valor arrecadado por multas foi de: R$%.2f\n", (somatotal/10.0) * 0.2);
+        fprintf(arq, "o valor arrecadado por manutencao foi de: R$%.2f\n", (n * 0.02) * 600);
+
+        fclose(arq);
+
+        return 0;
     }

@@ -1,0 +1,3 @@
+O valor total arrecadado pela locadora foi de: R$8000.00
+O valor arrecadado por multas foi de: R$40.00
+o valor arrecadado por manutencao foi de: R$60.00
