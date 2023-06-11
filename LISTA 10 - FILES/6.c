@@ -7,6 +7,11 @@
 
         arq = fopen("texto6.txt", "w");
 
+        if(arq == NULL){
+            printf("Erro na abertura do arquivo");
+            return 0;
+        }
+
         int n;
         printf("Insira quantas letras deseja digitar: ");
         scanf("%d", &n);
