@@ -1,3 +1,0 @@
-Matricula: 100
-Matricula: 200
-Matricula: 300
