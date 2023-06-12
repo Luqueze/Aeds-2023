@@ -24,7 +24,7 @@
         }
 
         for(int i = 0; i < 2; i++){
-            fscanf(arq, "%s %s %s %d", veiculo[i].marca, veiculo[i].modelo, veiculo[i].cor, &veiculo[i].ano);
+            fscanf(arq, "%s %s %s %d", veiculo[i].marca, veiculo[i].modelo, veiculo[i].cor, veiculo[i].ano);
         }
 
         for(int i = 0; i < 2; i++){
