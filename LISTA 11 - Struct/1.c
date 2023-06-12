@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<stdlib.h>
 
     typedef struct{
 
@@ -21,7 +22,7 @@
         scanf(" %c", &cliente1.telefone);
 
         printf("Insira o endereço: ");
-        fgets(stdin, cliente1.endereço, 50);
+        fgets(cliente1.endereço,stdin, 50);
 
         printf("insira seu nome: ");
         fgets(stdin,cliente2.nome, 30);
