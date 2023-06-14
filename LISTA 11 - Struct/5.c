@@ -42,7 +42,7 @@
 
     }
 
-    //função que recebe as informações e exiba qual o produto
+    
     void exibe2(produto p[], int cod){
 
         int i;
