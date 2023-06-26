@@ -69,13 +69,13 @@ public:
 int main(){
 
     relogio relogio(12, 30, 30);
+    cout << "Horario atual: \n";
     relogio.imprimirDados();
 
-    relogio.setHora(12, 30, 30);
-    relogio.imprimirDados();
-
+    //chamada de função para avançar o horario
     relogio.avancarHorario();
 
+    cout << "\nHorario atualizado: \n";
     relogio.imprimirDados();
 
     return 0;
