@@ -7,7 +7,7 @@ um veículo e EXCLUIR um veículo. */
 //Os  veículos  deverão ser armazenados em um arquivo texto
 using namespace std;
 
-
+int contador = 0;
 class Carro{
     private:
 
@@ -138,14 +138,9 @@ class Carro{
 
 int contarCarros() {
     int contador = 0;
-    char ch;
-    FILE *arq = fopen("carros.txt", "r");
+    FILE* arq = fopen("veiculos.txt", "r");
     if (arq != NULL) {
-        while ((ch = fgetc(arq)) != EOF) {
-            if (ch == '\n') {
-                contador++;
-            }
-        }
+        fscanf(arq, "%d", &contador);
         fclose(arq);
     } else {
         cout << "Não foi possível abrir o arquivo" << endl;
@@ -153,8 +148,9 @@ int contarCarros() {
     return contador;
 }
 
-void escreverContador(int contador) {
-    FILE *arq = fopen("veiculos.txt", "r+");
+
+void atualizarContador(int contador) {
+    FILE* arq = fopen("veiculos.txt", "r+");
     if (arq != NULL) {
         fprintf(arq, "%d\n", contador);
         fclose(arq);
@@ -163,11 +159,11 @@ void escreverContador(int contador) {
     }
 }
 
+
 int main(){
 
+    atualizarContador(contarCarros());
     FILE *arq;
-
-    
 
     int opcao;
     string placa;
@@ -240,6 +236,7 @@ int main(){
                 cout << "Insira o tipo do veiculo: " << endl;
                 cin >> tipo;
                 cout << "Insira a observação do veiculo caso haja: " << endl;
+
                 getline(cin, observacao);
                 {
                     
@@ -252,6 +249,9 @@ int main(){
                 fprintf(arq, "%s %s %s %d %.2f %d %s\n", c.getPlaca().c_str(), c.getMarca().c_str(), c.getModelo().c_str(), c.getAno(), c.getPreco(), c.getTipo(), c.getObservacao().c_str());
                 
                 fclose(arq);
+
+                int contador = contarCarros() + 1;
+                atualizarContador(contador);
                 }
                 
                 
@@ -305,7 +305,7 @@ int main(){
 
             case 5: // excluir veiculo //V
                 {
-                    cout << "Insira a placa do veículo que deseja excluir: " << endl;
+                    cout << "Insira a placa do veiculo que deseja excluir: " << endl;
                     cin >> placa;
 
                     FILE* arq = fopen("veiculos.txt", "r");
@@ -336,9 +336,11 @@ int main(){
                     rename("temp.txt", "veiculos.txt");
 
                     if (veiculoEncontrado) {
-                        cout << "Veículo excluído com sucesso!" << endl;
+                        cout << "Veiculo excluido com sucesso!" << endl;
+                        contador -= contador;
+                        atualizarContador(contador);
                     } else {
-                        cout << "Veículo não encontrado." << endl;
+                        cout << "Veiculo nao encontrado." << endl;
                     }
                     break;
                 }
