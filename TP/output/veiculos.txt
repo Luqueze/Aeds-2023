@@ -1,2 +1,1 @@
-plano ford honda 2012 5000.000000 2 nao
-tese fiat sedan 1999 10000.00 2 muito
+plano honda sedan 200 5000.00 2

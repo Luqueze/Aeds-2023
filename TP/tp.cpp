@@ -90,16 +90,7 @@ class Carro{
             return observacao;
         }
 
-        //imprimir
-       /*  void imprimir(){
-            cout << "Placa: " << placa << endl;
-            cout << "Marca: " << marca << endl;
-            cout << "Modelo: " << modelo << endl;
-            cout << "Ano: " << ano << endl;
-            cout << "Preço: " << preco << endl;
-            cout << "Tipo: " << tipo << endl;
-            cout << "Observacao: " << observacao << endl;
-        } */
+        
 
         //função para listar os veiculos do arquivo
         void listar(){
@@ -145,6 +136,33 @@ class Carro{
         
 };
 
+int contarCarros() {
+    int contador = 0;
+    char ch;
+    FILE *arq = fopen("carros.txt", "r");
+    if (arq != NULL) {
+        while ((ch = fgetc(arq)) != EOF) {
+            if (ch == '\n') {
+                contador++;
+            }
+        }
+        fclose(arq);
+    } else {
+        cout << "Não foi possível abrir o arquivo" << endl;
+    }
+    return contador;
+}
+
+void escreverContador(int contador) {
+    FILE *arq = fopen("veiculos.txt", "r+");
+    if (arq != NULL) {
+        fprintf(arq, "%d\n", contador);
+        fclose(arq);
+    } else {
+        cout << "Não foi possível abrir o arquivo" << endl;
+    }
+}
+
 int main(){
 
     FILE *arq;
@@ -161,163 +179,190 @@ int main(){
     string observacao; //infomação opcional
     string placaArquivo;
 
-    cout <<"Insira a opção desejada: " << endl;
-    cout << "1- CADASTRAR um novo veiculo" << endl;
-    cout << "2- EDITAR os dados de um veiculo existente" << endl;
-    cout << "3- PESQUISAR por um veiculo" << endl;
-    cout << "4- EXCLUIR um veiculo" << endl;
-    cout << "5- LISTAR VEICULOS" << endl;
-    cout << "6- SAIR" << endl;
+    do{
+        cout << "Insira a opcao desejada: " << endl;
+        cout << "1- LISTAR todos os veiculos" << endl;
+        cout << "2- PESQUISAR um veiculo" << endl;
+        cout << "3- CADASTRAR um veiculo" << endl;
+        cout << "4- EDITAR um veiculo" << endl;
+        cout << "5- EXCLUIR um veiculo" << endl;
+        cout << "6- SAIR do programa" << endl;
 
-    cin >> opcao;
+        cin >> opcao;
 
-    switch (opcao){
+        switch (opcao){
 
-        case 1://cadastrar um novo veiculo
-        
-            cout << "Insira a placa do veiculo: " << endl;
-            cin >> placa;
-            cout << "Insira a marca do veiculo: " << endl;
-            cin >> marca;
-            cout << "Insira o modelo do veiculo: " << endl;
-            cin >> modelo;
-            cout << "Insira o ano do veiculo: " << endl;
-            cin >> ano;
-            cout << "Insira o preço do veiculo: " << endl;
-            cin >> preco;
-            cout << "Insira o tipo do veiculo: " << endl;
-            cin >> tipo;
-            cout << "Insira a observação do veiculo caso haja: " << endl;
-            cin >> observacao;
-            {
-            Carro c(placa, marca, modelo, ano, preco, tipo, observacao);
+            case 1://listar todos os veiculos presentes no arquivo
+                arq = fopen("veiculos.txt", "r");
+                while(!feof(arq)){ //enquanto não chegar no final do arquivo
+                    fscanf(arq, "%s %s %s %d %f %d %s\n", placa.c_str(), marca.c_str(), modelo.c_str(), &ano, &preco, &tipo, observacao.c_str());
+                    cout << "\nPlaca: " << placa.c_str() << endl;
+                    cout << "Marca: " << marca.c_str() << endl;
+                    cout << "Modelo: " << modelo.c_str()<< endl;
+                    cout << "Ano: " << ano << endl;
+                    cout << "Preco: " << preco << endl;
+                    cout << "Tipo: " << tipo << endl;
+                    cout << "Observacao: " << observacao.c_str() << endl;
+                }
+                fclose(arq);
+                break;
 
-            //abertura de arquivo
-            
-            arq = fopen("veiculos.txt", "a");
-            
-            fprintf(arq, "%s %s %s %d %.2f %d %s\n", c.getPlaca().c_str(), c.getMarca().c_str(), c.getModelo().c_str(), c.getAno(), c.getPreco(), c.getTipo(), c.getObservacao().c_str());
-            //fechamento de arquivo
-            fclose(arq);
-            }
-            
-            
-            break;
+            case 2: // pesquisar veiculo
+                cout << "Insira a placa do veiculo que deseja pesquisar: " << endl;
+                cin >> placa;
 
-        case 2://editar dados
-            cout << "Insira a placa do veiculo que deseja editar: " << endl;
-            cin >> placa;
-
-            //abertura de arquivo
-            arq = fopen("veiculos.txt", "r");
-            //criar vetor para guardar placa, usar essa string para ler placa
-            while(!feof(arq)){ //enquanto não chegar no final do arquivo
-                fscanf(arq, "%s %s %s %d %f %d %s\n", placa.c_str(), marca.c_str(), modelo.c_str(), &ano, &preco, &tipo, observacao.c_str());
-                if(placa == placa){ //se a placa digitada for igual a placa do arquivo
-                    //chamar função para editar dados
-                    cout << "Insira a placa do veiculo: " << endl;
-                    cin >> placa;
-                    cout << "Insira a marca do veiculo: " << endl;
-                    cin >> marca;
-                    cout << "Insira o modelo do veiculo: " << endl;
-                    cin >> modelo;
-                    cout << "Insira o ano do veiculo: " << endl;
-                    cin >> ano;
-                    cout << "Insira o preço do veiculo: " << endl;
-                    cin >> preco;
-                    cout << "Insira o tipo do veiculo: " << endl;
-                    cin >> tipo;
-                    cout << "Insira a observação do veiculo caso haja: " << endl;
-                    cin >> observacao;
-
-                
-                    fclose(arq);
-                    
-
-                    {   
-                    Carro* c = new Carro(placa, marca, modelo, ano, preco, tipo, observacao);
-
-                    arq = fopen("veiculos.txt", "a");
-                    fprintf(arq, "%s %s %s %d %.2f %d %s\n", c->getPlaca().c_str(), c->getMarca().c_str(), c->getModelo().c_str(), c->getAno(), c->getPreco(), c->getTipo(), c->getObservacao().c_str());
-
-                    fclose(arq);
+                arq = fopen("veiculos.txt", "r");
+                while (!feof(arq)) {
+                    fscanf(arq, "%s %s %s %d %f %d %s\n", placaArquivo.c_str(), marca.c_str(), modelo.c_str(), &ano, &preco, &tipo, observacao.c_str());
+                    if (placa == placaArquivo) {
+                        Carro c(placaArquivo, marca, modelo, ano, preco, tipo, observacao);
+                        c.listar();
+                    }else{
+                        cout << "Veiculo não encontrado" << endl;
                     }
                 }
-            }
-            break;
 
-        case 3: // pesquisar veiculo
-            cout << "Insira a placa do veiculo que deseja pesquisar: " << endl;
-            cin >> placa;
+                fclose(arq);
+                break;    
 
-            arq = fopen("veiculos.txt", "r");
-            while (!feof(arq)) {
-                fscanf(arq, "%s %s %s %d %f %d %s\n", placaArquivo.c_str(), marca.c_str(), modelo.c_str(), &ano, &preco, &tipo, observacao.c_str());
-                if (placa == placaArquivo) {
-                    Carro c(placaArquivo, marca, modelo, ano, preco, tipo, observacao);
-                    c.listar();
-                }else{
-                    cout << "Veiculo não encontrado" << endl;
-                }
-            }
-
-            fclose(arq);
-            break;
+            case 3://cadastrar um novo veiculo
             
+                cout << "Insira a placa do veiculo: " << endl;
+                cin >> placa;
+                cout << "Insira a marca do veiculo: " << endl;
+                cin >> marca;
+                cout << "Insira o modelo do veiculo: " << endl;
+                cin >> modelo;
+                cout << "Insira o ano do veiculo: " << endl;
+                cin >> ano;
+                cout << "Insira o preço do veiculo: " << endl;
+                cin >> preco;
+                cout << "Insira o tipo do veiculo: " << endl;
+                cin >> tipo;
+                cout << "Insira a observação do veiculo caso haja: " << endl;
+                getline(cin, observacao);
+                {
+                    
+                Carro c(placa, marca, modelo, ano, preco, tipo, observacao);
 
+                
+                
+                arq = fopen("veiculos.txt", "a");
+                
+                fprintf(arq, "%s %s %s %d %.2f %d %s\n", c.getPlaca().c_str(), c.getMarca().c_str(), c.getModelo().c_str(), c.getAno(), c.getPreco(), c.getTipo(), c.getObservacao().c_str());
+                
+                fclose(arq);
+                }
+                
+                
+                break;
 
-        case 4://excluir veiculo
+            case 4://editar dados
+                cout << "Insira a placa do veiculo que deseja editar: " << endl;
+                cin >> placa;
 
-            cout << "Insira a placa do veículo que deseja excluir: " << endl;
-            cin >> placa;
+                //abertura de arquivo
+                arq = fopen("veiculos.txt", "r");
+                //criar vetor para guardar placa, usar essa string para ler placa
+                while(!feof(arq)){ //enquanto não chegar no final do arquivo
+                    fscanf(arq, "%s %s %s %d %f %d %s\n", placa.c_str(), marca.c_str(), modelo.c_str(), &ano, &preco, &tipo, observacao.c_str());
+                    if(placa == placa){ //se a placa digitada for igual a placa do arquivo
+                        //chamar função para editar dados
+                        cout << "Insira a placa do veiculo: " << endl;
+                        cin >> placa;
+                        cout << "Insira a marca do veiculo: " << endl;
+                        cin >> marca;
+                        cout << "Insira o modelo do veiculo: " << endl;
+                        cin >> modelo;
+                        cout << "Insira o ano do veiculo: " << endl;
+                        cin >> ano;
+                        cout << "Insira o preço do veiculo: " << endl;
+                        cin >> preco;
+                        cout << "Insira o tipo do veiculo: " << endl;
+                        cin >> tipo;
+                        cout << "Insira a observação do veiculo caso haja: " << endl;
+                        cin >> observacao;
+
+                    
+                        fclose(arq);
+                        
+
+                        {   
+                        Carro* c = new Carro(placa, marca, modelo, ano, preco, tipo, observacao);
+
+                        arq = fopen("veiculos.txt", "a");
+                        fprintf(arq, "%s %s %s %d %.2f %d %s\n", c->getPlaca().c_str(), c->getMarca().c_str(), c->getModelo().c_str(), c->getAno(), c->getPreco(), c->getTipo(), c->getObservacao().c_str());
+
+                        fclose(arq);
+                        }
+                    }
+                }
+                break;
 
             
-
-            arq = fopen("veiculos.txt", "r");
-            while(!feof(arq)){ //enquanto não chegar no final do arquivo
-                fscanf(arq, "%s %s %s %d %f %d %s\n", placa.c_str(), marca.c_str(), modelo.c_str(), &ano, &preco, &tipo, observacao.c_str());
-                if(placa == placa){ //se a placa digitada for igual a placa do arquivo
-                    cout << "Placa: " << placa << endl;
-                    cout << "Marca: " << marca << endl;
-                    cout << "Modelo: " << modelo << endl;
-                    cout << "Ano: " << ano << endl;
-                    cout << "Preço: " << preco << endl;
-                    cout << "Tipo: " << tipo << endl;
-                    cout << "Observação: " << observacao << endl;
-                }
-            }
-            fclose(arq);
-            break;
-
-
-        case 5://listar todos os veiculos presentes no arquivo
-            arq = fopen("veiculos.txt", "r");
-            while(!feof(arq)){ //enquanto não chegar no final do arquivo
-                fscanf(arq, "%s %s %s %d %f %d %s\n", placa.c_str(), marca.c_str(), modelo.c_str(), &ano, &preco, &tipo, observacao.c_str());
-                cout << "\nPlaca: " << placa.c_str() << endl;
-                cout << "Marca: " << marca.c_str() << endl;
-                cout << "Modelo: " << modelo.c_str()<< endl;
-                cout << "Ano: " << ano << endl;
-                cout << "Preco: " << preco << endl;
-                cout << "Tipo: " << tipo << endl;
-                cout << "Observacao: \t" << observacao.c_str() << endl;
-            }
-            fclose(arq);
-            break;
-
-        case 6: //sair do programa
-            cout << "Saindo do programa..." << endl;
-            break;
-
-        default:
-            cout << "Opção invalida!" << endl;
-            break;        
                 
 
-       
-    }
 
-    
+            case 5: // excluir veiculo //V
+                {
+                    cout << "Insira a placa do veículo que deseja excluir: " << endl;
+                    cin >> placa;
+
+                    FILE* arq = fopen("veiculos.txt", "r");
+                    FILE* arquivoTemp = fopen("temp.txt", "w");
+
+                    bool veiculoEncontrado = false;
+
+                    char placaArquivo[100];
+                    char marca[100];
+                    char modelo[100];
+                    int ano;
+                    float preco;
+                    int tipo;
+                    char observacao[100];
+
+                    while (fscanf(arq, "%s %s %s %d %f %d %s\n", placaArquivo, marca, modelo, &ano, &preco, &tipo, observacao) != EOF) {
+                        if (placa == placaArquivo) {
+                            veiculoEncontrado = true;
+                            continue;
+                        }
+                        fprintf(arquivoTemp, "%s %s %s %d %.2f %d %s\n", placaArquivo, marca, modelo, ano, preco, tipo, observacao);
+                    }
+
+                    fclose(arq);
+                    fclose(arquivoTemp);
+
+                    remove("veiculos.txt");
+                    rename("temp.txt", "veiculos.txt");
+
+                    if (veiculoEncontrado) {
+                        cout << "Veículo excluído com sucesso!" << endl;
+                    } else {
+                        cout << "Veículo não encontrado." << endl;
+                    }
+                    break;
+                }
+
+
+            
+
+            case 6: //sair do programa //V
+                cout << "Saindo do programa..." << endl;
+                break;
+
+            default:
+                cout << "Opção invalida!" << endl;
+                break;        
+                
+        }
+
+        if(opcao !=6){
+            cout << endl << "APERTE qualquer tecla e pressione ENTER para voltar ao menu: ";
+            cin.ignore();
+            cin.get();
+        }
+
+    }while(opcao != 6);
 
     return 0;
 }
