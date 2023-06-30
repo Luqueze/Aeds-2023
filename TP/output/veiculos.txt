@@ -1,3 +1,3 @@
-2
-plano honda sedan 2000 500.00 1 
-tese hyundai caminho 2005 400.00 1 
+plano;hyundai;sedan;2005;900.00;1;
+tese;ford;sedan;2009;700.00;1;
+novAplaca;fiat;unO;2001;800.00;1;

@@ -4,65 +4,24 @@
 
 using namespace std;
 
-class Carro {
-private:
-    char placa[10];
-    char marca[20];
-    char modelo[20];
-    int ano;
-    float preco;
-    int tipo; // 1- carro 2- moto
-    char observacao[50]; // informacao opcional
+int contarCarrosCadastrados() {
+    FILE* arquivo = fopen("veiculos.txt", "r");
 
-public:
-    Carro(const char* placa, const char* marca, const char* modelo, int ano, float preco, int tipo, const char* observacao) {
-        strncpy(this->placa, placa, sizeof(this->placa));
-        strncpy(this->marca, marca, sizeof(this->marca));
-        strncpy(this->modelo, modelo, sizeof(this->modelo));
-        this->ano = ano;
-        this->preco = preco;
-        this->tipo = tipo;
-        strncpy(this->observacao, observacao, sizeof(this->observacao));
+    if (arquivo == NULL) {
+        return 0;
     }
 
-    const char* getPlaca() {
-        return placa;
+    int contador = 0;
+    char linha[200];
+
+    while (fgets(linha, sizeof(linha), arquivo)) {
+        contador++;
     }
 
-    const char* getMarca() {
-        return marca;
-    }
+    fclose(arquivo);
 
-    const char* getModelo() {
-        return modelo;
-    }
-
-    int getAno() {
-        return ano;
-    }
-
-    float getPreco() {
-        return preco;
-    }
-
-    int getTipo() {
-        return tipo;
-    }
-
-    const char* getObservacao() {
-        return observacao;
-    }
-
-    void listar() {
-        cout << "Placa: " << placa << endl;
-        cout << "Marca: " << marca << endl;
-        cout << "Modelo: " << modelo << endl;
-        cout << "Ano: " << ano << endl;
-        cout << "Preco: " << preco << endl;
-        cout << "Tipo: " << tipo << endl;
-        cout << "Observacao: " << observacao << endl;
-    }
-};
+    return contador;
+}
 
 void listarVeiculos() {
     FILE* arquivo = fopen("veiculos.txt", "r");
@@ -71,6 +30,9 @@ void listarVeiculos() {
         cout << "Erro ao abrir o arquivo." << endl;
         return;
     }
+
+    int contador = contarCarrosCadastrados();
+    cout << "Total de carros cadastrados: " << contador << endl;
 
     char linha[200];
     while (fgets(linha, sizeof(linha), arquivo)) {
@@ -132,7 +94,7 @@ void cadastrarVeiculo() {
     cout << "Tipo (1- carro, 2- moto): ";
     cin >> tipo;
     cout << "Observacao: ";
-    cin.ignore(); 
+    cin.ignore();
     cin.getline(observacao, sizeof(observacao));
 
     FILE* arquivo = fopen("veiculos.txt", "a");
@@ -142,13 +104,16 @@ void cadastrarVeiculo() {
         return;
     }
 
-    fprintf(arquivo, "%s,%s,%s,%d,%.2f,%d,%s\n", placa, marca, modelo, ano, preco, tipo, observacao);
+    int contador = contarCarrosCadastrados() + 1; // Incrementa o contador
+
+    fprintf(arquivo, "%s;%s;%s;%d;%.2f;%d;%s\n", placa, marca, modelo, ano, preco, tipo, observacao);
 
     fclose(arquivo);
 
-    cout << "Veiculo cadastrado com sucesso." << endl;
+    cout << "Veiculo cadastrado com sucesso. Total de carros cadastrados: " << contador << endl;
 }
 
+//função para editar os dados do veiculo
 void editarVeiculo() {
     char placa[10];
     cout << "Insira a placa do veiculo que deseja editar: ";
@@ -194,7 +159,7 @@ void editarVeiculo() {
             cin.ignore();
             cin.getline(novaObservacao, sizeof(novaObservacao));
 
-            snprintf(novaLinha, sizeof(novaLinha), "%s,%s,%s,%d,%.2f,%d,%s\n", novoPlaca, novaMarca, novoModelo, novoAno, novoPreco, novoTipo, novaObservacao);
+            snprintf(novaLinha, sizeof(novaLinha), "%s;%s;%s;%d;%.2f;%d;%s\n", novoPlaca, novaMarca, novoModelo, novoAno, novoPreco, novoTipo, novaObservacao);
 
             fputs(novaLinha, arquivoTemp);
             encontrado = true;
@@ -247,7 +212,8 @@ void excluirVeiculo() {
     rename("veiculos_temp.txt", "veiculos.txt");
 
     if (encontrado) {
-        cout << "Veiculo excluido com sucesso." << endl;
+        int contador = contarCarrosCadastrados() - 1; // Decrementa o contador
+        cout << "Veiculo excluido com sucesso. Total de carros cadastrados: " << contador << endl;
     } else {
         cout << "Veiculo nao encontrado." << endl;
     }
@@ -263,7 +229,7 @@ int main() {
         cout << "4- Editar veiculo" << endl;
         cout << "5- Excluir veiculo" << endl;
         cout << "6- Sair" << endl;
-        cout << "\nEscolha uma opcao: ";
+        cout << "Escolha uma opcao: ";
         cin >> opcao;
 
         switch (opcao) {
@@ -287,7 +253,6 @@ int main() {
                 break;
             default:
                 cout << "Opcao invalida." << endl;
-                break;
         }
     } while (opcao != 6);
 
