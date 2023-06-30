@@ -25,6 +25,7 @@ public:
         strncpy(this->observacao, observacao, sizeof(this->observacao));
     }
 
+    //metodo get{
     const char* getPlaca() {
         return placa;
     }
@@ -52,7 +53,7 @@ public:
     const char* getObservacao() {
         return observacao;
     }
-
+    //}fim get
     void listar() {
         cout << "Placa: " << placa << endl;
         cout << "Marca: " << marca << endl;
@@ -64,6 +65,7 @@ public:
     }
 };
 
+//função para exibir o numero de veiculos no arquivo txt na primeira linha
 int getVeiculoCount() {
     FILE* arquivo = fopen("veiculos.txt", "r");
 
@@ -84,6 +86,7 @@ int getVeiculoCount() {
     return count;
 }
 
+//função para listar todos os veiculos
 void listarVeiculos() {
     FILE* arquivo = fopen("veiculos.txt", "r");
 
@@ -110,6 +113,7 @@ void listarVeiculos() {
     fclose(arquivo);
 }
 
+//função para pesquisar um veiculo, dado uma placa
 void pesquisarVeiculo() {
     char placa[10];
     cout << "Insira a placa do veiculo que deseja pesquisar: ";
@@ -140,6 +144,7 @@ void pesquisarVeiculo() {
     fclose(arquivo);
 }
 
+//função para cadastar um veiculo, com todos seus dados
 void cadastrarVeiculo() {
     char placa[10];
     char marca[20];
@@ -179,6 +184,7 @@ void cadastrarVeiculo() {
     cout << "Veiculo cadastrado com sucesso." << endl;
 }
 
+//funçao para editar um veiculo, dado a placa
 void editarVeiculo() {
     char placa[10];
     cout << "Insira a placa do veiculo que deseja editar: ";
@@ -246,6 +252,7 @@ void editarVeiculo() {
     }
 }
 
+//função para excluir um veiculo, dado a placa
 void excluirVeiculo() {
     char placa[10];
     cout << "Insira a placa do veiculo que deseja excluir: ";

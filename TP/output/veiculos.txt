@@ -1,2 +1,1 @@
-honda;hyndai;sedan;2000;100.00;1;
-tese;fiat;uno;2001;200.00;1;
+
