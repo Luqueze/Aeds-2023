@@ -1,3 +1,2 @@
-plano;hyundai;sedan;2005;900.00;1;
-tese;ford;sedan;2009;700.00;1;
-novAplaca;fiat;unO;2001;800.00;1;
+honda;hyndai;sedan;2000;100.00;1;
+tese;fiat;uno;2001;200.00;1;
