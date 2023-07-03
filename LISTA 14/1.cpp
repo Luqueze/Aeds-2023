@@ -1,35 +1,18 @@
-#include<iostream>
+#include <iostream>
 
 using namespace std;
-    int dado;
-    int main(){
-        try {
-            
-            cin >> dado;
 
-            if(dado > 6 ){
-                throw exception();
-            }
-            if(dado < -1){
-                throw dado;
-            }else{
-                cout << dado;
-            }
-        } catch (exception& e) {
-            cout << "Erro: valor invalido" << endl;
-            cout << "Valor informado: " << dado << endl;
-        }
-
-        catch (int e) {
-            cout << "Erro: valor negativo" << endl;
-            cout << "Valor informado: " << e << endl;
-            
-        }
-
-    
-
-        return 0;
-
-
-
+int main(){
+    try {
+        int valor;
+        cout << "Digite um n�mero inteiro de 1 a 6:";
+        cin >> valor;
+        if(valor < 1 || valor > 6)
+            throw valor;
+        cout << "O valor tirado no dado foi " << valor << endl;
+    } catch(int erro) {
+        cout << "Valor invalido " << erro << endl;
     }
+
+    return 0;
+}
