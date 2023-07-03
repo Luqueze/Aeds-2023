@@ -44,6 +44,8 @@ using namespace std;
         PessoaFisica pessoaFisica("Joao da Silva", "123456789-00");
         PessoaJuridica pessoaJuridica("Empresa do Joao SA",
                                     "12.299.535/0001-94");
+        Pessoa p1("Kng dinamarques\n");
+        p1.imprimir();                            
         Pessoa *pessoa;
         pessoa = &pessoaFisica;
         pessoa->imprimir();

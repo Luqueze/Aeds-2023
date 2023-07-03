@@ -1,1 +1,3 @@
-
+novaplaca;honda;sedan;2009;900.00;1;
+placa1;ford;sedan;2006;900.00;1;
+placa2;hyundai;sedan;2009;500.00;1;
